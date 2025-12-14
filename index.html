@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه جردن</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="/" type="image/x-icon">
+</head>
+<body>
+
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+
+    <!-- منوی کشویی سبد خرید -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar glass-panel" id="cartSidebar">
+        <div class="cart-header">
+            <h3>سبد خرید شما</h3>
+            <span class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></span>
+        </div>
+        
+        <!-- اینجا محصولات اضافه میشن -->
+        <div class="cart-items" id="cartItemsContainer">
+            <p class="empty-msg">سبد خرید خالی است...</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total">
+                <span>جمع کل:</span>
+                <span id="totalPrice">0 تومان</span>
+            </div>
+            <button class="btn-checkout">تکمیل خرید</button>
+        </div>
+    </div>
+
+    <header class="glass-nav reveal-down">
+        <div class="logo">Air<span class="dot">JORDAN</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#products">کالکشن</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#contact">ارتباط با ما</a></li>
+                <li><a href="login.html">ورود/ثبت نام</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <div class="search-box">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="جستجو..." class="search-input">
+            </div>
+
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
+
+            
+            <!-- دکمه باز کردن سبد -->
+            <div class="cart-box" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-text glass-panel reveal-left">
+            <h4>کالکشن جدید ۲۰۲۵</h4>
+            <h1>اصالـت و <br> زیبایـی</h1>
+            <p>ترکیبی از بهترین کتونی ها. کتونی‌هایی که استایل شما را درخشان می‌کنند.</p>
+            <a href="#products" class="btn-hero">مشاهده فروشگاه</a>
+        </div>
+        
+        <div class="hero-image-container reveal-right">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2012&auto=format&fit=crop" alt="Jordan Cream">
+            <div class="floating-tag glass-card">
+                <strong>تمامی محصولات با 5 درصد تخفیف</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2 class="section-title reveal-up">محصولات</h2>
+        <div class="product-grid">
+            
+            <!-- محصول 1 -->
+            <div class="product-card glass-panel reveal-up page-1" data-id="1" data-name="Air-Jordan1 retro-high chicago" data-price="12500000" data-img="/Photos/jordan 1 retro high chica.png">
+                <div class="img-wrapper">
+                    <img src="/Photos/jordan 1 retro high chica.png" alt="Shoe 1">
+                </div>
+                <h3 class="product-name">Air Jordan 1 retro-high chicago</h3>
+                <span class="price">12,500,000 تومان</span>
+                <button onclick="addToCart(this)" class="btn-add">افزودن به سبد خرید</button>
+            </div>
+
+            <!-- محصول 2 -->
+            <div class="product-card glass-panel reveal-up page-1" style="transition-delay: 0.1s" data-id="2" data-name="Air-jordan13 retro-HeHotGame" data-price="14000000" data-img="/Photos/Air jordan 13 retro he got game.png">
+                <div class="img-wrapper">
+                    <img src="/Photos/Air jordan 13 retro he got game.png" alt="Shoe 2">
+                </div>
+                <h3 class="product-name">Air Jordan Retro HeGotGame</h3>
+                <span class="price">14,000,000 تومان</span>
+                <button onclick="addToCart(this)" class="btn-add">افزودن به سبد خرید</button>
+            </div>
+
+            <!-- محصول 3 -->
+            <div class="product-card glass-panel reveal-up page-1" style="transition-delay: 0.2s" data-id="3" data-name="/" data-price="." data-img="/">
+                <div class="img-wrapper">
+                    <img src="/" alt="Shoe 3">
+                </div>
+                <h3 class="product-name">Travis Scott</h3>
+                <span class="price">۱۵,۰۰۰,۰۰۰ تومان</span>
+                <button onclick="addToCart(this)" class="btn-add">افزودن به سبد خرید</button>
+            </div>
+
+                       <!-- محصول 4 -->
+            <div class="product-card glass-panel reveal-up page-1" style="transition-delay: 0.2s" data-id="4" data-name="/" data-price="." data-img="/">
+                <div class="img-wrapper">
+                    <img src="/" alt="Shoe 3">
+                </div>
+                <h3 class="product-name">Travis Scott</h3>
+                <span class="price">۱۵,۰۰۰,۰۰۰ تومان</span>
+                <button onclick="addToCart(this)" class="btn-add">افزودن به سبد خرید</button>
+            </div>
+
+                     <!-- محصول 5  -->
+            <div class="product-card glass-panel reveal-up page-2" style="display: none;" style="transition-delay: 0.2s" data-id="5" data-name="/" data-price="." data-img="/">
+                <div class="img-wrapper">
+                    <img src="/" alt="Shoe 3">
+                </div>
+                <h3 class="product-name">Travis Scott</h3>
+                <span class="price">۱۵,۰۰۰,۰۰۰ تومان</span>
+                <button onclick="addToCart(this)" class="btn-add">افزودن به سبد خرید</button>
+            </div>
+
+        <!-- دکمه‌های صفحه‌بندی  -->
+        <div class="pagination" style="display: flex; justify-content: center; gap: 15px; margin-top: 50px;">
+            <button class="page-btn active" onclick="changePage(1)">1</button>
+            <button class="page-btn" onclick="changePage(2)">2</button>
+        </div>
+
+        </div>
+    </section>
+
+
+
+        <!-- درباره ما-->
+    <section id="about" class="container reveal-up">
+        <div class="about-box glass-panel">
+            <h2>درباره ما</h2>
+            <p>ما بهترین‌ها را برای شما گلچین کرده‌ایم. ضمانت اصالت و کیفیت، شعار ماست.</p>
+            <div class="features">
+                <div class="feature-item"><i class="fas fa-gem"></i><span>لوکس</span></div>
+                <div class="feature-item"><i class="fas fa-check"></i><span>اورجینال</span></div>
+                <div class="feature-item"><i class="fas fa-shipping-fast"></i><span>سریع</span></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+        <!--  ارتباط با ما -->
+    <section id="contact"  class="container">
+        <div class="glass-panel contact-box ">
+            <h2>ارتباط با ما</h2>
+            <p>برای دیدن جدیدترین مدل‌ها و تخفیف‌های ویژه، ما را در شبکه‌های اجتماعی دنبال کنید.</p>
+            
+            <div class="social-links">
+                <!-- لینک تلگرام -->
+                <a href="https://t.me/BW_Parsa" target="_blank" class="social-btn telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>Telegram</span>
+                </a>
+
+                <!-- لینک اینستاگرام -->
+                <a href="https://instagram.com/amup.arsa" target="_blank" class="social-btn instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- فوتر حرفه‌ای -->
+    <footer class="glass-footer reveal-up">
+        <div class="footer-content">
+
+            <!-- ستون ۱: درباره ما -->
+            <div class="footer-section about">
+                <div class="footer-logo">Air<span class="dot">JORDAN</span></div>
+                <p>
+                    مرجع تخصصی کتونی‌های اورجینال جردن. ما با تضمین اصالت و کیفیت، بهترین‌ها را برای استایل شما فراهم می‌کنیم.
+                </p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <!-- ستون ۲: دسترسی سریع -->
+            <div class="footer-section links">
+                <h3>دسترسی سریع</h3>
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#products">کالکشن جدید</a></li>
+                    <li><a href="#about">درباره ما</a></li>
+                    <li><a href="#">سوالات متداول</a></li>
+                </ul>
+            </div>
+
+            <!-- ستون ۳: تماس -->
+            <div class="footer-section contact-info">
+                <h3>تماس با ما</h3>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>jordanshop@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>تهران، خیابان ولیعصر، پلاک ۱</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© ۲۰۲۵ تمامی حقوق برای فروشگاه جردن محفوظ است.</p>
+        </div>
+    </footer>
+
+
+    <div id="preloader">
+        <div class="loader-content">
+
+            <!-- <img src="running-shoe.gif" alt="Loading..." width="80"> -->
+
+            <div class="spinner"></div>
+
+            <p>درحال ورود به سایت .....</p>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script src="script.js"></script>
+</html>
